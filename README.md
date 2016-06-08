@@ -7,7 +7,7 @@ Because we can! Small friendly competitions are a great way to push yourself to 
 ## Requirements
 All games should meet the requirements on this list.
 - [ ] Must be made with JavaScript and HTML5 based
-- [ ] Old school feel (e.g. pacman, space invaders, asteroids, pong, tetris)
+- [ ] Old school feel (e.g. pacman, space invaders, asteroids, pong, tetris), though it can be original or a clone
 - [ ] Link to an active playable demo
 - [ ] Multiplayer aspect (doesn't necessarily have to be isomorphic)
 - [ ] Authenticated users

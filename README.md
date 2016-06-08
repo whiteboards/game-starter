@@ -12,7 +12,6 @@ All games should meet the requirements on this list.
 - [ ] Multiplayer aspect (doesn't necessarily have to be isomorphic)
 - [ ] Authenticated users
 - [ ] Sockets (for realtime)
-- [ ] History
 - [ ] private conversations/rooms (optional)
 - **Submission date is June 24, 2016. Submit with PR**
 

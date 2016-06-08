@@ -11,8 +11,16 @@ All games should meet the requirements on this list.
 - [ ] Link to an active playable demo
 - [ ] Multiplayer aspect (doesn't necessarily have to be isomorphic)
 - [ ] Sockets (for realtime)
-- [ ] Authenticated users (optional)
+- [ ] Authenticated users - gameplay optional
+  - To expand on this, you can play without signing in, but you should be able to if you want. 
 - **Submission date is June 24, 2016. Submit with PR**
+
+## Optional enhancements
+- [ ] Multiple levels
+- [ ] High scores
+- [ ] Game chat
+- [ ] Customization 
+
 
 ## Ready, set, go.
 Good luck.

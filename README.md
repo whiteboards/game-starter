@@ -10,9 +10,8 @@ All games should meet the requirements on this list.
 - [ ] Old school feel (e.g. pacman, space invaders, asteroids, pong, tetris), though it can be original or a clone
 - [ ] Link to an active playable demo
 - [ ] Multiplayer aspect (doesn't necessarily have to be isomorphic)
-- [ ] Authenticated users
 - [ ] Sockets (for realtime)
-- [ ] private conversations/rooms (optional)
+- [ ] Authenticated users (optional)
 - **Submission date is June 24, 2016. Submit with PR**
 
 ## Ready, set, go.

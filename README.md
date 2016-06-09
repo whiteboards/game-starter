@@ -1,7 +1,9 @@
 # game-starter
 
 [![Join the chat at https://gitter.im/whiteboards/game-starter](https://badges.gitter.im/whiteboards/game-starter.svg)](https://gitter.im/whiteboards/game-starter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-A friendly competition to make a fun game in js!
+
+A friendly "competition" to make a fun game in js!
+While this isn't a true compeitition (there aren't any prizes), you can take the time limit as a way to compete against yourself to learn something new, or just to have fun building a game.
 
 ## What? Why?
 Because we can! Small friendly competitions are a great way to push yourself to learn new things in a non-stessful manner.

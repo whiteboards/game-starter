@@ -1,15 +1,16 @@
 {
-  "name": "PhaserES6Webpack",
-  "version": "1.0.0",
+  "name": "Stroids",
+  "version": "0.0.1",
   "description": "",
-  "author": "leandro cabrera <leandcabrera@gmail.com>",
-  "main": "index.js",
+  "author": "Colby Rodeheaver",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "dev": "webpack",
     "deploy": "webpack --config webpack.production.config.js",
     "test": "standard"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.8.0",
     "babel-loader": "^6.2.3",
@@ -23,6 +24,10 @@
     "webpack": "^1.12.13"
   },
   "dependencies": {
+    "express": "^4.13.4",
     "phaser": "^2.4.7"
+  },
+  "engines": {
+    "node": "6.2.1"
   }
 }

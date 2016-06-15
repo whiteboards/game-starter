@@ -3,11 +3,17 @@ import Bullets from './Bullets'
 
 export default class extends Phaser.Sprite {
 
-  constructor ({ game, x, y, asset }) {
+  constructor ({ game, x, y, asset, physics }) {
     super(game, x, y, asset)
 
     this.game = game
     this.anchor.setTo(0.5)
+    
+    this.game.physics.arcade.enable(this)
+    
+    
+    this.body.drag.set(100)
+    this.body.maxVelocity.set(200)
     
     this.bulletTime = 0;
     
@@ -21,8 +27,9 @@ export default class extends Phaser.Sprite {
   }
 
   update () {
+     
 
-    if (this.game.cursors.up.isDown)
+    if (this.game.key_thrust.isDown)
     {
         this.game.physics.arcade.accelerationFromRotation(this.rotation, 200, this.body.acceleration);
     }
@@ -31,11 +38,11 @@ export default class extends Phaser.Sprite {
         this.body.acceleration.set(0);
     }
 
-    if (this.game.cursors.left.isDown)
+    if (this.game.key_left.isDown)
     {
         this.body.angularVelocity = -300;
     }
-    else if (this.game.cursors.right.isDown)
+    else if (this.game.key_right.isDown)
     {
         this.body.angularVelocity = 300;
     }
@@ -44,7 +51,7 @@ export default class extends Phaser.Sprite {
         this.body.angularVelocity = 0;
     }
     
-    if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+    if (this.game.key_fire.isDown)
     {
         this.fireBullet();
     }
@@ -80,11 +87,15 @@ export default class extends Phaser.Sprite {
 
         if (bullet)
         {
-            bullet.reset(this.body.x + 63, this.body.y + 23);
+            var length = this.width * 0.5;
+            var x = this.x + (Math.cos(this.rotation) * length);
+            var y = this.y + (Math.sin(this.rotation) * length);
+            bullet.reset(x, y);
+            //bullet.reset(this.body.x+16, this.body.y +16);
             bullet.lifespan = 2000;
             bullet.rotation = this.rotation;
             this.game.physics.arcade.velocityFromRotation(this.rotation, 400, bullet.body.velocity);
-            this.bulletTime = this.game.time.now + 50;
+            this.bulletTime = this.game.time.now + 100;
         }
     }
 

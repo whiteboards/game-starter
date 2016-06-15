@@ -1,6 +1,7 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
 import Ship from '../sprites/Ship'
+import Asteroid from '../sprites/Asteroid'
 import {setResponsiveWidth} from '../utils'
 
 export default class extends Phaser.State {
@@ -8,28 +9,37 @@ export default class extends Phaser.State {
   preload () {}
 
   create () {
-    
-    this.game.cursors = this.input.keyboard.createCursorKeys();
 
+    this.game.key_left = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+    this.game.key_right = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+    this.game.key_thrust = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
+    this.game.key_fire = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
+    
+    this.game.physics.startSystem(Phaser.Physics.ARCADE);
+    
     this.ship = new Ship({
       game: this.game,
       x: this.game.world.centerX,
       y: this.game.world.centerY,
-      asset: 'ship'
+      asset: 'ship',
+      physics: Phaser.Physics.ARCADE
     })
     
     
-    
-    this.physics.startSystem(Phaser.Physics.ARCADE);
-    
-    this.physics.arcade.enable(this.ship);
-    
-    
-    // set the sprite width to 30% of the game width
     //setResponsiveWidth(this.ship, 10, this.game.world)
     this.game.add.existing(this.ship)
     
-    this.game.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
+    this.game.asteroids = Array.from(
+      new Array(5), (x, i) => new Asteroid({
+      game: this.game,
+      x: Math.floor((Math.random() * this.game.world.width)),
+      y: Math.floor((Math.random() * this.game.world.height)),
+      asset: 'asteroid',
+      physics: Phaser.Physics.ARCADE
+    }))
+    
+    this.game.asteroids.forEach(asteroid => this.game.add.existing(asteroid))
+    
   }
 
   render () {

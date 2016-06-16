@@ -1,8 +1,8 @@
 var express = require('express');
 var port = process.env.PORT || 80
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var https = require('https').Server(app);
+var io = require('socket.io')(https);
 
 app.use(express.static('public'));
 
@@ -14,6 +14,6 @@ io.on('connection', function(socket){
   console.log('a user connected');
 });
 
-http.listen(port, function(){
+https.listen(port, function(){
   console.log('Example app listening on port ' + port);
 });

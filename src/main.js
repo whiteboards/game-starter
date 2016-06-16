@@ -10,11 +10,11 @@ import GameState from './states/Game'
 class Game extends Phaser.Game {
 
   constructor () {
-    let io = socket('http://stroids-crodeheaver.c9users.io/')
+    let io = socket('secret-temple-20459.herokuapp.com')
     io.on('connect', function(){console.log("connected!")});
     io.on('event', function(data){});
     io.on('disconnect', function(){});
-    let width = document.documentElement.clientWidth 
+    let width = document.documentElement.clientWidth
     let height = document.documentElement.clientHeight
 
     super(width, height, Phaser.AUTO, 'content', null)

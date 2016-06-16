@@ -10,7 +10,7 @@ import GameState from './states/Game'
 class Game extends Phaser.Game {
 
   constructor () {
-    let io = socket('secret-temple-20459.herokuapp.com')
+    let io = socket('//secret-temple-20459.herokuapp.com')
     io.on('connect', function(){console.log("connected!")});
     io.on('event', function(data){});
     io.on('disconnect', function(){});

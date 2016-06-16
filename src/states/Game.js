@@ -3,12 +3,18 @@ import Phaser from 'phaser'
 import Ship from '../sprites/Ship'
 import Asteroid from '../sprites/Asteroid'
 import {setResponsiveWidth} from '../utils'
+import socket from'socket.io-client'
 
 export default class extends Phaser.State {
   init () {}
   preload () {}
 
   create () {
+    
+    let io = socket('//secret-temple-20459.herokuapp.com')
+    io.on('connect', function(){console.log("connected!")});
+    io.on('event', function(data){});
+    io.on('disconnect', function(){});
 
     this.game.key_left = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
     this.game.key_right = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);

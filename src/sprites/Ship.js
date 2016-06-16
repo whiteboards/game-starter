@@ -22,7 +22,7 @@ export default class extends Phaser.Sprite {
       enableBody: true,
       physicsBodyType: Phaser.Physics.ARCADE,
       asset: 'bullet',
-      amount: 5
+      amount: 40
     })
   }
 

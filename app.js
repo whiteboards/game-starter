@@ -7,7 +7,7 @@ var io = require('socket.io')(http);
 app.use(express.static('public'));
 
 app.get('*', function(req, res){
-  res.sendFile('index.html');
+  res.sendFile('/index.html');
 });
 
 io.on('connection', function(socket){
@@ -15,5 +15,5 @@ io.on('connection', function(socket){
 });
 
 http.listen(port, function(){
-  console.log('Example app listening on port ' + port);
+  console.log('Stroids listening on port ' + port);
 });

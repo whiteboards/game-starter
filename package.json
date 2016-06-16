@@ -5,7 +5,7 @@
   "author": "Colby Rodeheaver",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "npm run deploy && node app.js",
     "dev": "webpack",
     "deploy": "webpack --config webpack.production.config.js",
     "test": "standard"

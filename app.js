@@ -1,19 +1,21 @@
-var express = require('express');
-var port = process.env.PORT || 80
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var express = require('express')
+var port = process.env.PORT || 8080
+var app = express()
+var http = require('http').Server(app)
+var io = require('socket.io')(http)
 
-app.use(express.static('public'));
+require('./server/socket')(io)
 
-app.get('*', function(req, res){
-  res.sendFile('/index.html');
-});
+app.use(express.static('public'))
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
+app.get('*', function (req, res) {
+  res.sendFile('/index.html')
+})
 
-http.listen(port, function(){
-  console.log('Stroids listening on port ' + port);
-});
+io.on('connection', function (socket) {
+  console.log('a user connected')
+})
+
+http.listen(port, function () {
+  console.log('Stroids listening on port ' + port)
+})

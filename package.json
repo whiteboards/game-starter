@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "webpack",
-    "deploy": "webpack --config webpack.production.config.js",
+    "dev": "npm run wp | npm start",
+    "wp": "webpack",
     "test": "standard"
   },
   "repository": {

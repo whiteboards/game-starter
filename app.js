@@ -14,5 +14,5 @@ let server = http.createServer(
     throw err
   }
   console.log('listening on port ' + port)
-  let game = new Game(io.listen(server), 800, 640)
+  let game = new Game(io.listen(server), 9600, 5400)
 })

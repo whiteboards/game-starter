@@ -3,10 +3,12 @@ let util = require('util')
 let Player = require('./player')
 
 module.exports = class Game {
-  constructor (socket) {
+  constructor (socket, width, height) {
     this.socket = socket
     this.players = []
     socket.sockets.on('connection', this.onSocketConnection)
+
+    this.world = {width: width, height: height}
   }
 
   onSocketConnection (client) {

@@ -7,22 +7,32 @@ export default class extends Phaser.Sprite {
     super(game, x, y, asset)
 
     this.game = game
+    
+    this.weapon = game.add.weapon(30, 'bullet');
+
+    //  The bullets will be automatically killed when they are 2000ms old
+    this.weapon.bulletKillType = Phaser.Weapon.KILL_LIFESPAN;
+    this.weapon.bulletLifespan = 2000;
+
+    //  The speed at which the bullet is fired
+    this.weapon.bulletSpeed = 600;
+
+    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+    this.weapon.fireRate = 100;
+
+    //  Wrap bullets around the world bounds to the opposite side
+    this.weapon.bulletWorldWrap = true;
+    
+    
     this.anchor.setTo(0.5)
 
     this.game.physics.arcade.enable(this)
 
     this.body.drag.set(100)
     this.body.maxVelocity.set(200)
-
-    this.bulletTime = 0
-
-    this.bullets = new Bullets({
-      game: this.game,
-      enableBody: true,
-      physicsBodyType: Phaser.Physics.ARCADE,
-      asset: 'bullet',
-      amount: 40
-    })
+    
+    this.weapon.trackSprite(this, 0, 0, true);
+    
   }
 
   update () {
@@ -41,55 +51,9 @@ export default class extends Phaser.Sprite {
     }
 
     if (this.game.key_fire.isDown) {
-      this.fireBullet()
+      this.weapon.fire();
     }
-    this.screenWrap()
+    this.game.world.wrap(this, 16);
   }
 
-  screenWrap () {
-    if (this.x < 0) {
-      this.x = this.game.width
-    } else if (this.x > this.game.width) {
-      this.x = 0
-    }
-
-    if (this.y < 0) {
-      this.y = this.game.height
-    } else if (this.y > this.game.height) {
-      this.y = 0
-    }
-  }
-
-  fireBullet () {
-    if (this.game.time.now > this.bulletTime) {
-      let bullet = this.bullets.getFirstExists(false)
-
-      if (bullet) {
-        var length = this.width * 0.5
-        var x = this.x + (Math.cos(this.rotation) * length)
-        var y = this.y + (Math.sin(this.rotation) * length)
-        bullet.reset(x, y)
-        // bullet.reset(this.body.x+16, this.body.y +16);
-        bullet.lifespan = 2000
-        bullet.rotation = this.rotation
-        this.game.physics.arcade.velocityFromRotation(this.rotation, 400, bullet.body.velocity)
-        this.bulletTime = this.game.time.now + 100
-      }
-    }
-  }
-  getX () {
-    return this.x
-  }
-
-  getY () {
-    return this.y
-  }
-
-  setX (newX) {
-    this.x = newX
-  }
-
-  setY (newY) {
-    this.y = newY
-  }
 }

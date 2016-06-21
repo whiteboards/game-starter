@@ -37,3 +37,11 @@ All games should meet the requirements on this list.
 
 ## Ready, set, go.
 Good luck.
+
+Usefull stuff
+- http://applifier.github.io/developer-quiz/
+- http://ccoenraets.github.io/es6-tutorial/index.html
+- http://learningelixir.joekain.com/functional-oo/
+- https://github.com/xicombd/phaser-multiplayer-game
+- http://rawkes.com/articles/creating-a-real-time-multiplayer-game-with-websockets-and-node.html
+- https://github.com/belohlavek/phaser-es6-boilerplate
